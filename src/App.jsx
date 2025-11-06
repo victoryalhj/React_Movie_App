@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import AppLayout from './layout/AppLayout'
 import Homepage from './pages/Homepage/Homepage'
 import MoviePage from './pages/Movies/MoviePage'
 import MovieDetailPage from './pages/MovieDetail/MovieDetailPage'
+import { Route, Routes } from 'react-router-dom'
+import NotFoundpage from './pages/NotFoundpage/NotFoundpage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +21,7 @@ function App() {
             </Route>
         </Route>
 
-        <Route path="*" element={<NotFoundPage/>}/>
+        <Route path="*" element={<NotFoundpage/>}/>
       </Routes>
    
     </div>
