@@ -1,4 +1,4 @@
-body, #root {
+body,html, #root {
   background-color: rgb(18, 18, 18);
   height: 100%;
   color: white;
