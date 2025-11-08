@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const AppLayout = () => {
   return (
@@ -22,8 +22,8 @@ const AppLayout = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/">HOME</Nav.Link>
-              <Nav.Link href="/movies">MOVIE</Nav.Link>
+              <Nav.Link as={Link} to="/">HOME</Nav.Link>
+              <Nav.Link as={Link} to="/movies">MOVIE</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control
