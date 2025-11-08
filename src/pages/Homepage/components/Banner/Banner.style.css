@@ -1,0 +1,34 @@
+.banner {
+  height: 56vh;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner::before {
+  content:'';
+  background:linear-gradient(to top, black, transparent);
+  position: absolute;
+  left: 0;
+  height: 56vh;
+  width: 100%;
+}
+.banner-text-area {
+  width: 36%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+}
+.banner-text-area > * {
+  z-index: 2;
+}
+.banner-text-area h1 {
+  font-weight: 700;
+}
+
+@media screen and (max-width:430px) {
+  .banner-text-area {
+    width: 100%;
+  }
+}

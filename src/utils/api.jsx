@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY=process.env.REACT_APP_API_KEY;
+const API_KEY=import.meta.env.VITE_API_KEY;
 
 const api = axios.create({
   baseURL:"https://api.themoviedb.org/3",
@@ -28,5 +28,5 @@ axios.interceptors.response.use(function (response) {
     // 응답 오류가 있는 작업 수행
     return Promise.reject(error);
   });
-  
+
 export default api;
