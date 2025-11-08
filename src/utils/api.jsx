@@ -6,7 +6,7 @@ const api = axios.create({
   baseURL:"https://api.themoviedb.org/3",
   headers:{
     Accept:'application/json',
-    Authorization:`Bearer ${API_KEY}`
+    Authorization:`Bearer ${import.meta.env.VITE_API_KEY}`
   }
 })
 
