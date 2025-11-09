@@ -1,0 +1,10 @@
+.carousel-container {
+  overflow: hidden;
+  height: 440px;
+}
+.upcoming-movie-area {
+  margin: 20px;
+}
+.upcoming-movie-area h3 {
+  font-weight: 800;
+}

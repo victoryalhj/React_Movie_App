@@ -12,3 +12,5 @@ export const usePopularMoviesQuery=()=>{
     select:(result)=>result.data,
   })
 }
+
+export default usePopularMoviesQuery;

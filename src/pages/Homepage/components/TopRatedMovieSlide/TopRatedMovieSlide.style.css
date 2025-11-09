@@ -1,0 +1,10 @@
+.carousel-container {
+  overflow: hidden;
+  height: 440px;
+}
+.top-rated-movie-area {
+  margin: 20px;
+}
+.top-rated-movie-area h3 {
+  font-weight: 800;
+}
