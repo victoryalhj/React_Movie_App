@@ -1,5 +1,30 @@
+.no-result-area {
+  text-align: center;
+  margin-top: 2rem;
+}
+
 .movie-page-area {
   margin-top: 2rem;
+}
+
+.page-area {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 10px;
+}
+.page-area li {
+  list-style: none;
+  cursor: pointer;
+}
+.page-area li a {
+  color: white;
+  text-decoration: none;
+}
+.page-area li.active a {
+  background-color: white;
+  padding: 5px;
+  color: black;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 430px) {
