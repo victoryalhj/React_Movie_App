@@ -5,14 +5,14 @@ import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
 
 const MovieCard = ({ movie }) => {
   const { data: genreData } = useMovieGenreQuery();
-  console.log("gg", genreData);
+  if(!movie||!genreData) return null;
 
   const showGenre = (genreIdList) => {
-    if (!genreData) return [];
+    if (!genreData.genres) return [];
 
     const genreNameList = genreIdList.map((id) => {
-      const genreObj = genreData.find((genre) => genre.id === id);
-      return genreObj.name;
+      const genreObj = genreData.genres.find((genre) => genre.id === id);
+      return genreObj? genreObj.name: "Unknown";
     });
     return genreNameList;
   };
@@ -38,8 +38,8 @@ const MovieCard = ({ movie }) => {
             );
           })}
         </div>
-        <div>{movie.vote_average}</div>
-        <div>{movie.popularity}</div>
+        <div><Badge bg="primary">⭐{movie.vote_average}</Badge></div>
+        <div><Badge bg="success">🔥{Math.floor(movie.popularity)}</Badge></div>
         <div className="age-area">
           {movie.adult ? (
             <Badge bg="danger">OVER 18</Badge>
