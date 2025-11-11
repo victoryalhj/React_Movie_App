@@ -4,7 +4,7 @@ import { Alert } from 'react-bootstrap'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './UpcomingMovieSlide.style.css'
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../../../../common/MovieCard/MovieCard';
 
 const responsive = {
   desktop: {

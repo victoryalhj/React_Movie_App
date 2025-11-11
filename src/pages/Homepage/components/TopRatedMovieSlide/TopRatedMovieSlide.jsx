@@ -2,7 +2,7 @@ import React from "react";
 import { Alert } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import MovieCard from "../MovieCard/MovieCard";
+import MovieCard from "../../../../common/MovieCard/MovieCard";
 import { useTopRatedMoviesQuery } from "../../../../hooks/useTopRatedMovies";
 import './TopRatedMovieSlide.style.css'
 
