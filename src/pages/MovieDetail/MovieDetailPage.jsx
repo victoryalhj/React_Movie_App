@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Alert, Badge } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useMovieDetailQuery from "../../hooks/useMovieDetailQuery";
-import './MovieDetailPage.style.css'
+import "./MovieDetailPage.style.css";
+import useMovieReviewQuery from "../../hooks/useMovieReviewQuery";
+
+const Review = ({ review }) => {
+  const [expended, setExpended] = useState(false);
+  const isLong = review.content.length > 200;
+  return (
+    <div className="review">
+      <h4>{review.author}</h4>
+      <p>
+        {expended || !isLong
+          ? review.content
+          : review.content.slice(0, 200) + "..."}
+      </p>
+      {isLong && (
+        <button className="button-area" onClick={() => setExpended(!expended)}>
+          {expended ? "Collapse" : "Read More"}
+        </button>
+      )}
+    </div>
+  );
+};
 
 const MovieDetailPage = () => {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useMovieDetailQuery(id);
+  const { data: reviews } = useMovieReviewQuery(id);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -27,19 +49,32 @@ const MovieDetailPage = () => {
       <div className="detail-text-area">
         <div className="genre-area">
           {data.genres.map((genre, index) => (
-               <Badge key={index} className="badge-area" bg="danger">
-            {genre.name}
-          </Badge>       
+            <Badge key={index} className="badge-area" bg="danger">
+              {genre.name}
+            </Badge>
           ))}
-
         </div>
         <h1>{data.title}</h1>
         <div>
-          <Badge className="vote-average-area" bg="primary">⭐{data.vote_average}</Badge> | {" "}
-          <Badge className="popularity-area" bg="success">🔥{Math.floor(data.popularity)}</Badge>
+          <Badge className="vote-average-area" bg="primary">
+            ⭐{data.vote_average}
+          </Badge>{" "}
+          |{" "}
+          <Badge className="popularity-area" bg="success">
+            🔥{Math.floor(data.popularity)}
+          </Badge>
         </div>
         <div className="overview-area">{data.overview}</div>
-        <div>{}</div>
+
+        <div className="review-area">
+          <h1>Reviews</h1>
+          {reviews?.length === 0 && <p>No reviews available</p>}
+          {reviews?.map((review) => (
+            <div className="each-review">
+            <Review key={review.id} review={review}></Review>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

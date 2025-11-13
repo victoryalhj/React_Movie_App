@@ -6,7 +6,7 @@
   align-items: center;
 }
 .detail-area {
-  height: 100vh;
+  height: auto;
   padding: 20px;
 }
 
@@ -25,10 +25,33 @@
   margin: 5px;
   padding: 10px;
 }
-.vote-average-area,.popularity-area {
+.vote-average-area,
+.popularity-area {
   margin: 10px;
 }
 .overview-area {
   margin: 20px;
   text-align: center;
+}
+/* Review Area */
+.review-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.each-review {
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+.button-area {
+  cursor: pointer;
+  text-decoration: underline;
+  background-color: black;
+  border: none;
+  color: white;
+  font-weight: 700;
 }
