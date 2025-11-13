@@ -1,0 +1,34 @@
+.detail-area,
+.detail-text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detail-area {
+  height: 100vh;
+  padding: 20px;
+}
+
+.poster-img {
+  display: flex;
+  justify-content: center;
+}
+.poster-img img {
+  width: 90%;
+  margin: 0 auto;
+}
+.genre-area {
+  margin: 10px;
+}
+.badge-area {
+  margin: 5px;
+  padding: 10px;
+}
+.vote-average-area,.popularity-area {
+  margin: 10px;
+}
+.overview-area {
+  margin: 20px;
+  text-align: center;
+}

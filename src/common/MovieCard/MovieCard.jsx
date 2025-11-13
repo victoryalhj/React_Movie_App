@@ -2,14 +2,20 @@ import React from "react";
 import { Badge } from "react-bootstrap";
 import "./MovieCard.style.css";
 import { useMovieGenreQuery } from "../../hooks/useMovieGenre";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   const { data: genreData} = useMovieGenreQuery();
 
-  console.log("movie title", movie?.title)
-  console.log("genre ids",movie?.genre_ids)
+  const navigate = useNavigate();
+  // console.log("movie title", movie?.title)
+  // console.log("genre ids",movie?.genre_ids)
 
   if(!movie ||!genreData) return null;
+
+  const goToDetail =()=>{
+    navigate(`/movies/${movie.id}`)
+  }
 
   const showGenre = (genreIdList) => {
     if (!Array.isArray(genreData) || genreData.length === 0) return [];
@@ -30,13 +36,14 @@ const MovieCard = ({ movie }) => {
           ")",
       }}
       className="movie-card"
+      onClick={goToDetail}
     >
       <div className="overlay">
         <h3>{movie.title}</h3>
         <div>
-          {showGenre(movie.genre_ids).map((genre) => {
+          {showGenre(movie.genre_ids).map((genre,index) => {
             return (
-              <Badge className="badge-area" bg="danger">
+              <Badge key={index} className="badge-area" bg="danger">
                 {genre}
               </Badge>
             );
