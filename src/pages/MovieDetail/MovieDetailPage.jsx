@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import useMovieDetailQuery from "../../hooks/useMovieDetailQuery";
 import "./MovieDetailPage.style.css";
 import useMovieReviewQuery from "../../hooks/useMovieReviewQuery";
+import useMovieVideoQuery from "../../hooks/useMovieVideosQuery";
 
 const Review = ({ review }) => {
   const [expended, setExpended] = useState(false);
@@ -29,6 +30,7 @@ const MovieDetailPage = () => {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useMovieDetailQuery(id);
   const { data: reviews } = useMovieReviewQuery(id);
+  const { data: videos } = useMovieVideoQuery(id);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -66,12 +68,26 @@ const MovieDetailPage = () => {
         </div>
         <div className="overview-area">{data.overview}</div>
 
+        {videos?.length > 0 && (
+          <div className="trailer-area">
+            <h1>Trailer</h1>
+            {videos.map(video => (
+              <iframe
+              className="each-trailer"
+              key={video.id} width="560" height={315} src={`https://www.youtube.com/embed/${video.key}`}
+                title={video.name}
+                frameBorder="0"
+                allowFullScreen></iframe>
+            ))}
+          </div>
+        )}
+
         <div className="review-area">
           <h1>Reviews</h1>
           {reviews?.length === 0 && <p>No reviews available</p>}
           {reviews?.map((review) => (
             <div className="each-review">
-            <Review key={review.id} review={review}></Review>
+              <Review key={review.id} review={review}></Review>
             </div>
           ))}
         </div>
