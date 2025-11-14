@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Badge } from "react-bootstrap";
+import { Alert, Badge, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useMovieDetailQuery from "../../hooks/useMovieDetailQuery";
 import "./MovieDetailPage.style.css";
@@ -40,7 +40,7 @@ const MovieDetailPage = () => {
   }
 
   return (
-    <div className="detail-area">
+    <Container className="detail-area">
       <div className="poster-img">
         <img
           src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${data.poster_path}`}
@@ -74,7 +74,7 @@ const MovieDetailPage = () => {
             {videos.map(video => (
               <iframe
               className="each-trailer"
-              key={video.id} width="560" height={315} src={`https://www.youtube.com/embed/${video.key}`}
+              key={video.id} src={`https://www.youtube.com/embed/${video.key}`}
                 title={video.name}
                 frameBorder="0"
                 allowFullScreen></iframe>
@@ -92,7 +92,7 @@ const MovieDetailPage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

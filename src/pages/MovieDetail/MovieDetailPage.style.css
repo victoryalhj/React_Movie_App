@@ -43,7 +43,9 @@
   margin: 20px;
 }
 .each-trailer {
-  margin: 20px;
+  margin: 10px;
+  width: 560px;
+  height: 315px;
 }
 
 /* Review Area */
@@ -68,4 +70,15 @@
   border: none;
   color: white;
   font-weight: 700;
+}
+
+
+@media screen and (max-width: 430px) {
+  .detail-text-area {
+    width: 90%;
+  }
+  .each-trailer {
+    width: 100%;
+   height: 200px;
+  }
 }

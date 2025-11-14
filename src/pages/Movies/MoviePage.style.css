@@ -27,5 +27,15 @@
   font-weight: bold;
 }
 
+/* Filter */
+.filter-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#dropdown-sort {
+  margin: 10px;
+}
+
 @media screen and (max-width: 430px) {
 }
